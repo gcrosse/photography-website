@@ -1,6 +1,6 @@
 "use client";
 import{ useState } from "react";
-
+// form created to request customer to send a request if he is interested in purchasing the image
 export default function Form() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -10,12 +10,12 @@ export default function Form() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         
-        //All Fields must be filled
+        //All Fields must be filled if customer fills any one field but misses one
         if(!name || !email || !message ) {
             alert("Alert! Please fill all valid fields");
             return;
         }
-        //Simulate form submission
+        //Simulate form submission after all fields have been filled
         console.log("Your request has been Submitted: ", {name, email, message});
         setSubmitted(true);
         setName("");
@@ -24,13 +24,18 @@ export default function Form() {
     };
 
 return (
-    <div style={{  padding: "1rem", 
-        border: "1px solid #ccc", borderRadius: "8px", marginTop: "2rem", 
-        width: "500px", height: "300px", backgroundColor: "#7d6b57"}}>
-            
+    <div style={{  
+        padding: "1rem", 
+        border: "1px solid #ccc", 
+        borderRadius: "8px", 
+        marginTop: "2rem", 
+        width: "500px", 
+        height: "300px", 
+        backgroundColor: "#7d6b57"}}>
+            {/* Form is created */}
         <h2 style={{ textAlign: "center", color: "#fff"}}>Request To Purchase A Photo</h2>
         {submitted ? (
-            <p style={{ color: "green"}}> Thank you! Your request has been submitted</p>
+            <p style={{ textAlign: "center", color: "white"}}> Thank you! Your request has been submitted</p>
         ) : (
             <form onSubmit={handleSubmit}>
                 <div style={{ marginBottom: "1rem"}}>

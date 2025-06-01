@@ -1,13 +1,14 @@
 "use client"
 import {useState} from "react";
 
+//creating variable for photo
 type Photo = {
     id: number;
     title: string;
     category: string;
     url: string; 
 };
-
+//linking the variable to categories upon selection
 const samplePhotos: Photo[] = [
     {id: 1, title: "Photo1", category: "Design", url: "/photos/photo1.jpg" },
     {id: 3, title: "Photo3", category: "City", url: "/photos/photo3.jpg" },
@@ -15,8 +16,10 @@ const samplePhotos: Photo[] = [
     {id: 4, title: "Photo4", category: "Location", url: "/photos/photo4.jpg" },
 ];
 
+//setting up category variables
 const categories = ["All", "Design", "City", "Scenery", "Location"];
- 
+
+//All is preselected. When the user selects any other feature design, city... only the images selected under category will be selected.
 export default function ListFilters() {
     const[selectedCategory, setSelectCategory] = useState("All");
 
